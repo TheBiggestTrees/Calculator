@@ -16,7 +16,6 @@ function clearScreen() {
     result = '';
     xFill = false;
     display.innerHTML = '000';
-    console.log('clear')
 }
 
 function addBtn() {
@@ -60,21 +59,25 @@ function operate() {
     switch(op) {
         case '+': 
             result = a + b;
+            display.innerHTML = result;
             break
         case '-': 
             result = a - b;
+            display.innerHTML = result;
             break
         case '*': 
             result = a * b;
+            display.innerHTML = result;
             break
         case '/': 
             result = a / b;
+            display.innerHTML = result;
             break
         default: 
-            console.log('invalid');
+            display.innerHTML = 'Try some numbers';
             break
     }
 
-    display.innerHTML = result;
+    
 
 }
