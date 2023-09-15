@@ -1,39 +1,46 @@
 let display = document.getElementById('display');
-let op = '';
-let activeOp = '';
+let result;
+let a;
+let b;
 const x = [];
 const y = [];
 
-function insertNum(n) {
+function insertNum(n, op) {
 
     if(!op) {
         x.push(n);
         display.innerHTML = +x.join('');
-        console.log(+x.join(''))
+        console.log('x' + +x.join(''))
+        a = +x.join('')
     } else {
         y.push(n);
-        display.innerHTML = +x.join('') + op[0] + +y.join('');
+        display.innerHTML = `${a} ${op} ${y.join('')}`
         console.log(+y.join(''))
+        b = +y.join('');
     }  
     
 }
 
-function operate() {
-    let answer = +x.join('') + +y.join('')
-    display.innerHTML = answer;
-    console.log(typeof answer)
+function operate(op) {
+    switch(op) {
+        case '+': result = a + b;
+        case '-': result = a - b;
+    }
+    console.log(result)
+
 }
 
 function add() {
-    op = '+'
+    let op = '+'
     console.log(op)
-    display.innerHTML = +x.join('') + op[0] + y.join('');
+    display.innerHTML = a + op[0];
+    return op;
 }
 
-function subtract(x, op, y) {
+function subtract() {
     op = '-'
+    display.innerHTML = a + ' ' + op[0];
     console.log(op)
-    display.innerHTML = +x.join('') + op[0] + y.join('');
 }
 
 function divide(x, op, y) {
