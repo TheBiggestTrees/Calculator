@@ -2,52 +2,79 @@ let display = document.getElementById('display');
 let result;
 let a;
 let b;
-const x = [];
-const y = [];
+let xFill = false;
+let op = '';
+let x = [];
+let y = [];
 
-function insertNum(n, op) {
+function clearScreen() {
+    op = '';
+    a = '';
+    b = '';
+    x = [];
+    y = [];
+    result = '';
+    xFill = false;
+    display.innerHTML = '000';
+    console.log('clear')
+}
 
-    if(!op) {
-        x.push(n);
-        display.innerHTML = +x.join('');
-        console.log('x' + +x.join(''))
-        a = +x.join('')
-    } else {
+function addBtn() {
+    xFill = true;
+    op = '+';
+    display.innerHTML = `${a} ${op}`;
+}
+
+function subtractBtn() {
+    xFill = true;
+    op = '-';
+    display.innerHTML = `${a} ${op}`;
+}
+
+function divideBtn() {
+    xFill = true;
+    op = '/';
+    display.innerHTML = `${a} ${op}`;
+}
+
+function multiplyBtn() {
+    xFill = true;
+    op = '*';
+    display.innerHTML = `${a} ${op}`;
+}
+
+function insertNum(n) {
+    if (xFill === true) {
         y.push(n);
-        display.innerHTML = `${a} ${op} ${y.join('')}`
-        console.log(+y.join(''))
         b = +y.join('');
-    }  
+        display.innerHTML = `${a} ${op} ${b}`
+    }  else {
+        x.push(n);
+        a = +x.join('')
+        display.innerHTML = a;
+    } 
     
 }
 
-function operate(op) {
+function operate() {
     switch(op) {
-        case '+': result = a + b;
-        case '-': result = a - b;
+        case '+': 
+            result = a + b;
+            break
+        case '-': 
+            result = a - b;
+            break
+        case '*': 
+            result = a * b;
+            break
+        case '/': 
+            result = a / b;
+            break
+        default: 
+            console.log('invalid');
+            break
     }
-    console.log(result)
+
+    display.innerHTML = result;
 
 }
-
-function add() {
-    let op = '+'
-    console.log(op)
-    display.innerHTML = a + op[0];
-    return op;
-}
-
-function subtract() {
-    op = '-'
-    display.innerHTML = a + ' ' + op[0];
-    console.log(op)
-}
-
-function divide(x, op, y) {
-
-}
-
-function multiply(x, op, y) {
-
-}
-
