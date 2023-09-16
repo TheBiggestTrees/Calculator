@@ -8,6 +8,8 @@ let xFill = false;
 let op = '';
 let x = [];
 let y = [];
+let xDecimalClicked = false;
+let yDecimalClicked = false;
 
 function clearScreen() {
     op = '';
@@ -17,8 +19,8 @@ function clearScreen() {
     y = [];
     result = '';
     xFill = false;
-    display.innerHTML = '0';
-    answer.innerHTML = 'Ans';
+    display.innerHTML = 'Ans';
+    answer.innerHTML = '0';
 }
 
 function operateReset() {
@@ -58,12 +60,27 @@ function insertNum(n) {
     if (xFill === true) {
         y.push(n);
         b = +y.join('');
-        display.innerHTML = `${a} ${op} ${b}`
+        display.innerHTML = `${+a} ${op} ${+b}`
     }  else {
         x.push(n);
         a = +x.join('')
-        display.innerHTML = a;
+        display.innerHTML = +a;
     } 
+    
+}
+
+function insertDecimal() {
+        if (xFill === true && yDecimalClicked === false) {
+            y.push('.');
+            b = +y.join('');
+            display.innerHTML = `${+a} ${op} ${+b}`
+            yDecimalClicked = true;
+        }  else if (xDecimalClicked === false) {
+            x.push('.');
+            a = +x.join('')
+            display.innerHTML = +a;
+            xDecimalClicked = true;
+        } 
     
 }
 
@@ -90,15 +107,21 @@ function operate() {
             operateReset();
             break
         case '÷': 
-            result = a / b;
-            answer.innerHTML = previousEquation;
-            display.innerHTML = result;
-            operateReset();
+            if (b == 0) {
+                display.innerHTML = `Can't divide by zero`
+            } else {
+                result = a / b;
+                answer.innerHTML = previousEquation;
+                display.innerHTML = result;
+                operateReset();}
             break
         default: 
             answer.innerHTML = 'Try some numbers';
             break
     }
+
+    
+
 }
 
 function backspace() {
@@ -108,6 +131,7 @@ function backspace() {
         b = +y.join('')
         display.innerHTML =  `${a} ${op} ${b}`;     
     }  else {
+        xFill = false;
         x.splice(-1, 1);
         a = +x.join('');
         display.innerHTML = a;
@@ -122,6 +146,9 @@ window.onkeydown = (e) => {
             break
         case 13:
             operate();
+            break
+        case 67:
+            clearScreen();
             break
         case 96: 
             insertNum(0);
@@ -163,7 +190,7 @@ window.onkeydown = (e) => {
             subtractBtn();
             break
         case 110:
-            insertNum('.');
+            insertDecimal();
             break
         case 111:
             divideBtn();

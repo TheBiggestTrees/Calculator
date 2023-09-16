@@ -99,3 +99,13 @@ button:hover {
 #ans {
     font-size: 50px;
 }
+
+.external {
+    width: 175px;
+    border-radius: 16px;
+}
+
+#externalBtn {
+    display: flex;
+    margin-bottom: 10px;
+}
