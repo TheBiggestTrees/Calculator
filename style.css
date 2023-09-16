@@ -7,14 +7,88 @@ body {
 
 .calculator {
     background-color: #6d6d6d;
+    border-radius: 40px;
     color: white;
-    display: flex;
-    flex-wrap: wrap;
     width: 500px;
     height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+}
+
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    width: 285px;
+}
+
+.op {
+    display: flex;
+    flex-direction: column;
+    width: 100px
+}
+
+#plus:hover {
+    background-color: #68dbd2;
+    transition: all 0.2s;
+}
+
+#minus:hover {
+    background-color: #68dbd2;
+    transition: all 0.2s;
+}
+
+#divide:hover {
+    background-color: #68dbd2;
+    transition: all 0.2s;
+}
+
+#multiply:hover {
+    background-color: #68dbd2;
+    transition: all 0.2s;
+}
+
+.caluclate:hover {
+    background-color: #98e9e2;
+    transition: all 0.2s;  
+}
+
+button {
+    width: 85px;
+    height: 85px;
+    border: 2px solid #315a72;
+    border-radius: 100%;
+    background-color: #3b97cc;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #77b5d8;
+    transition: all 0.2s;
 }
 
 #display {
     display: flex;
-    width: auto;
+    flex-direction: column;
+    text-align: end;
+    padding-right: 12px;
+    width: 400px;
+    margin-bottom: 50px;
+    background-color: #252525;
+    border: solid 2px #333333;
+    border-radius: 20px;
+}
+
+p {
+    font-size: 24px;
+}
+
+#ans {
+    font-size: 35px;
 }

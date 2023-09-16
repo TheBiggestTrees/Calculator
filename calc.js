@@ -1,4 +1,5 @@
-let display = document.getElementById('display');
+let display = document.getElementById('ans');
+let answer = document.getElementById('previousAnswer')
 let result;
 let a;
 let b;
@@ -15,7 +16,18 @@ function clearScreen() {
     y = [];
     result = '';
     xFill = false;
-    display.innerHTML = '000';
+    display.innerHTML = '0';
+    answer.innerHTML = 'Ans';
+}
+
+function operateReset() {
+    op = '';
+    a = '';
+    b = '';
+    x = [];
+    y = [];
+    result = '';
+    xFill = false;
 }
 
 function addBtn() {
@@ -59,25 +71,40 @@ function operate() {
     switch(op) {
         case '+': 
             result = a + b;
-            display.innerHTML = result;
+            answer.innerHTML = result;
+            operateReset();
             break
         case '-': 
             result = a - b;
-            display.innerHTML = result;
+            answer.innerHTML = result;
+            operateReset();
             break
         case '*': 
             result = a * b;
-            display.innerHTML = result;
+            answer.innerHTML = result;
+            operateReset();
             break
         case '/': 
             result = a / b;
-            display.innerHTML = result;
+            answer.innerHTML = result;
+            operateReset();
             break
         default: 
-            display.innerHTML = 'Try some numbers';
+            answer.innerHTML = 'Try some numbers';
             break
     }
+}
 
+function backspace() {
     
-
+    if (xFill === false) {
+        x.splice(-1, 1);
+        a = +x.join('');
+        display.innerHTML = a;
+    }  else {
+        y.splice(-1, 1);
+        b = +y.join('')
+        display.innerHTML =  `${a} ${op} ${b}`;
+    } 
+    
 }

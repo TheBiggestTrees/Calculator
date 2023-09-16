@@ -8,28 +8,36 @@
 </head>
 <body>
     <div class="calculator">
-        <div id="display">000</div>
-        <div class="numbers">
-            <button id="one" value="1" onclick="insertNum('1')">1</button>
-            <button id="two" value="2" onclick="insertNum('2')">2</button>
-            <button id="three" value="3" onclick="insertNum('3')">3</button>
-            <button id="four" value="4" onclick="insertNum('4')">4</button>
-            <button id="five" value="5" onclick="insertNum('5')">5</button>
-            <button id="six" value="6" onclick="insertNum('6')">6</button>
-            <button id="seven" value="7" onclick="insertNum('7')">7</button>
-            <button id="eight" value="8" onclick="insertNum('8')">8</button>
-            <button id="nine" value="9" onclick="insertNum('9')">9</button>
-            <button id="zero" value="0" onclick="insertNum('0')">0</button>
-            <button id="decimal" value="." onclick="insertNum('.')">.</button>
+        <div id="display">
+            <p id="previousAnswer">Ans</p>
+            <p id="ans">0</p>
         </div>
-        <div class="op">
-            <button id="plus" onclick="addBtn()">+</button>
-            <button id="minus" onclick="subtractBtn()">-</button>
-            <button id="multiply" onclick="multiplyBtn()">*</button>
-            <button id="divide" onclick="divideBtn()">/</button>
+        <div class="inputs">
+            <div class="numbers">
+                <button id="seven" value="7" onclick="insertNum('7')">7</button>
+                <button id="eight" value="8" onclick="insertNum('8')">8</button>
+                <button id="nine" value="9" onclick="insertNum('9')">9</button>
+                <button id="four" value="4" onclick="insertNum('4')">4</button>
+                <button id="five" value="5" onclick="insertNum('5')">5</button>
+                <button id="six" value="6" onclick="insertNum('6')">6</button>
+                <button id="one" value="1" onclick="insertNum('1')">1</button>
+                <button id="two" value="2" onclick="insertNum('2')">2</button>
+                <button id="three" value="3" onclick="insertNum('3')">3</button>
+                <button id="zero" value="0" onclick="insertNum('0')">0</button>
+                <button id="decimal" value="." onclick="insertNum('.')">.</button>
+                <button class="caluclate" onclick="operate()">=</button>
+            </div>
+            <div class="op">
+                <button id="divide" onclick="divideBtn()">/</button>
+                <button id="multiply" onclick="multiplyBtn()">X</button>
+                <button id="plus" onclick="addBtn()">+</button>
+                <button id="minus" onclick="subtractBtn()">-</button>
+            </div>
         </div>
-        <button class="caluclate" onclick="operate()">=</button>
-        <button class="clear" onclick="clearScreen()">C</button>
+        <div>
+            <button class="external" onclick="backspace()"><---</button>
+            <button class="external" onclick="clearScreen()">C</button>
+        </div>
     </div>
 </body>
 <script src="calc.js"></script>
