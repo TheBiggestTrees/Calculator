@@ -1,3 +1,9 @@
+@import url('https://fonts.cdnfonts.com/css/calculator?styles=116340');                
+
+* {
+    font-family: 'Calculator', sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -12,6 +18,7 @@ body {
     width: 500px;
     height: 800px;
     display: flex;
+    margin: 50px auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -62,6 +69,7 @@ body {
 button {
     width: 85px;
     height: 85px;
+    font-size: xx-large;
     border: 2px solid #315a72;
     border-radius: 100%;
     background-color: #3b97cc;
@@ -74,21 +82,20 @@ button:hover {
 }
 
 #display {
-    display: flex;
-    flex-direction: column;
     text-align: end;
     padding-right: 12px;
     width: 400px;
+    height: 200px;
     margin-bottom: 50px;
     background-color: #252525;
     border: solid 2px #333333;
     border-radius: 20px;
 }
 
-p {
-    font-size: 24px;
+#previousAnswer {
+    font-size: 35px;
 }
 
 #ans {
-    font-size: 35px;
+    font-size: 50px;
 }
