@@ -24,7 +24,7 @@ function clearScreen() {
 }
 
 function operateReset() {
-    a = result;
+    a = Math.round(result * 100000) / 100000;;
     b = '';
     x = Array.from(String(result));
     y = [];
@@ -35,35 +35,35 @@ function operateReset() {
 function addBtn() {
     xFill = true;
     op = '+';
-    display.innerHTML = `${a} +`;
+    display.innerHTML = `${Math.round(a * 100000) / 100000} +`;
 }
 
 function subtractBtn() {
     xFill = true;
     op = '–';
-    display.innerHTML = `${a} –`;
+    display.innerHTML = `${Math.round(a * 100000) / 100000} –`;
 }
 
 function divideBtn() {
     xFill = true;
     op = '÷';
-    display.innerHTML = `${a} ÷`;
+    display.innerHTML = `${Math.round(a * 100000) / 100000} ÷`;
 }
 
 function multiplyBtn() {
     xFill = true;
     op = '×';
-    display.innerHTML = `${a} ×`;
+    display.innerHTML = `${Math.round(a * 100000) / 100000} ×`;
 }
 
 function insertNum(n) {
     if (xFill === true) {
         y.push(n);
-        b = +y.join('');
-        display.innerHTML = `${+a} ${op} ${+b}`
+        b = Math.round(+y.join('') * 100000) / 100000;
+        display.innerHTML = `${+Math.round(+x.join('') * 100000) / 100000} ${op} ${+b}`
     }  else {
         x.push(n);
-        a = +x.join('')
+        a = Math.round(+x.join('') * 100000) / 100000;
         display.innerHTML = +a;
     } 
     
@@ -85,25 +85,25 @@ function insertDecimal() {
 }
 
 function operate() {
-    previousEquation = `${a} ${op} ${b}`;
+    previousEquation = `${Math.round(a * 100000) / 100000} ${op} ${Math.round(b * 100000) / 100000}`;
 
     switch(op) {
         case '+': 
             result = a + b;
             answer.innerHTML = previousEquation;
-            display.innerHTML = result;
+            display.innerHTML = Math.round(result * 100000) / 100000;
             operateReset();
             break
         case '–': 
             result = a - b;
             answer.innerHTML = previousEquation;
-            display.innerHTML = result;
+            display.innerHTML = Math.round(result * 100000) / 100000;
             operateReset();
             break
         case '×': 
             result = a * b;
             answer.innerHTML = previousEquation;
-            display.innerHTML = result;
+            display.innerHTML = Math.round(result * 100000) / 100000;
             operateReset();
             break
         case '÷': 
@@ -112,7 +112,7 @@ function operate() {
             } else {
                 result = a / b;
                 answer.innerHTML = previousEquation;
-                display.innerHTML = result;
+                display.innerHTML = Math.round(result * 100000) / 100000;
                 operateReset();}
             break
         default: 
@@ -128,12 +128,12 @@ function backspace() {
     
     if(y.length > 0) {
         y.splice(-1, 1);
-        b = +y.join('')
+        b = Math.round(+y.join('') * 100000) / 100000;
         display.innerHTML =  `${a} ${op} ${b}`;     
     }  else {
         xFill = false;
         x.splice(-1, 1);
-        a = +x.join('');
+        a = Math.round(+x.join('') * 100000) / 100000;
         display.innerHTML = a;
     } 
     
